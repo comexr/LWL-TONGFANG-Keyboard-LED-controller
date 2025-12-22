@@ -5,5 +5,13 @@ curl https://sh.rustup.rs -sSf | sh -s -- -y
 ```
 Install Cargo with the default package manager:
 ```bash
-sudo bash -c 'if command -v apt &>/dev/null; then apt update && apt install -y cargo; elif command -v dnf &>/dev/null; then dnf install -y cargo; elif command -v pacman &>/dev/null; then pacman -Syu cargo; elif command -v zypper &>/dev/null; then zypper install -y cargo; else echo "Unsupported package manager"; exit 1; fi'
+sudo bash -c 'if command -v apt &>/dev/null; then apt update && apt install -y cargo git; elif command -v dnf &>/dev/null; then dnf install -y cargo git; elif command -v pacman &>/dev/null; then pacman -Syu cargo git; elif command -v zypper &>/dev/null; then zypper install -y cargo git; else echo "Unsupported package manager"; exit 1; fi'
+```
+Then you need to clone the repo:
+```bash
+git clone https://github.com/comexr/LWL-TONGFANG-Keyboard-LED-controller && cd LWL-TONGFANG-Keyboard-LED-controller
+```
+As last you need to install it with:
+```bash
+make install
 ```
