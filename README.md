@@ -23,6 +23,7 @@ cargo deb
 ```
 To build for rpm execute:
 ```bash
+cargo rpm build || true
 rpmbuild -ba target/release/rpmbuild/SPECS/keyboard-controller.spec \
   -D "_topdir $(pwd)/target/release/rpmbuild" \
   -D "_tmppath $(pwd)target/release/rpmbuild/tmp"
