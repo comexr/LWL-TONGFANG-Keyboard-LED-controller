@@ -1,3 +1,5 @@
+
+
 To install the app you firts need Rust installed and Cargo:
 
 ```bash
@@ -15,3 +17,4 @@ As last you need to install it with:
 ```bash
 make install
 ```
+You can find the app under the name 'TF Keyboard controller' or you can run it via the terminal with the command``` keyboard-controller ```
