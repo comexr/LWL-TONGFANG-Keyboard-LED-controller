@@ -11,6 +11,9 @@ install:
 	systemctl --user daemon-reload
 	systemctl --user enable rusty-kb.service
 	systemctl --user start rusty-kb.service
+	if command -v loginctl >/dev/null 2>&1; then \
+		sudo loginctl enable-linger "$${SUDO_USER:-$${USER}}" || true; \
+	fi
 	chmod +x ~/.rusty-kb/setcolor.sh
 	sudo chmod +x /bin/keyboard-controller
 uninstall:

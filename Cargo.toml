@@ -16,7 +16,7 @@ gdk4 = "0.9"
 
 [package.metadata.rpm]
 package = "keyboard-controller"
-files = { "rusty-kb.desktop" = { path = "/usr/share/applications/rusty-kb.desktop" }, "icon.png" = { path = "/usr/share/icons/hicolor/256x256/apps/rusty-kb.png" }, "setcolor.sh" = { path = "/usr/lib/rusty-kb/setcolor.sh", mode = "755" }, "rusty-kb.service" = { path = "/usr/lib/systemd/user/rusty-kb.service" }, "99-rusty-kb.rules" = { path = "/etc/udev/rules.d/99-rusty-kb.rules" } }
+files = { "rusty-kb.desktop" = { path = "/usr/share/applications/rusty-kb.desktop" }, "icon.png" = { path = "/usr/share/icons/hicolor/256x256/apps/rusty-kb.png" }, "setcolor.sh" = { path = "/usr/lib/rusty-kb/setcolor.sh", mode = "755" }, "rusty-kb.service" = { path = "/usr/lib/systemd/user/rusty-kb.service" }, "99-rusty-kb.rules" = { path = "/etc/udev/rules.d/99-rusty-kb.rules" }, "colors.txt" = { path = "/usr/lib/rusty-kb/colors.txt" } }
 
 [package.metadata.rpm.cargo]
 buildflags = ["--release"]
@@ -35,5 +35,6 @@ section = "utils"
      ["setcolor.sh", "/usr/lib/rusty-kb/setcolor.sh", "755"],
      ["rusty-kb.service", "/usr/lib/systemd/user/rusty-kb.service", "644"],
      ["udev/99-rusty-kb.rules", "/etc/udev/rules.d/99-rusty-kb.rules", "644"],
+     ["defaults/colors.txt", "/usr/lib/rusty-kb/colors.txt", "644"],
  ]
  maintainer-scripts = "debian"

@@ -12,6 +12,11 @@ set -euo pipefail
 #   scripts/apply_colors_from_file.sh [path_to_colors_file]
 
 FILE="${1:-"$HOME/.rusty-kb/colors.txt"}"
+FALLBACK="/usr/lib/rusty-kb/colors.txt"
+
+if [[ ! -f "$FILE" && -f "$FALLBACK" ]]; then
+  FILE="$FALLBACK"
+fi
 
 if [[ ! -f "$FILE" ]]; then
   echo "Color file not found: $FILE" >&2

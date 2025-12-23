@@ -25,11 +25,20 @@ add_user_to_group() {
     fi
 }
 
+enable_linger_for_user() {
+    user="$1"
+    [ -n "$user" ] || return 0
+    LOGINCTL_BIN="$(command -v loginctl || true)"
+    [ -n "$LOGINCTL_BIN" ] || return 0
+    "$LOGINCTL_BIN" enable-linger "$user" >/dev/null 2>&1 || true
+}
+
 ensure_group
 
 # Best guess for the installer-invoking user
 USER_TO_ADD="${SUDO_USER:-$(logname 2>/dev/null || true)}"
 add_user_to_group "$USER_TO_ADD"
+enable_linger_for_user "$USER_TO_ADD"
 
 # Also add all regular (uid >= 1000) login-capable users so unattended installs work
 while IFS=: read -r name _ uid _ _ _ shell; do
@@ -38,6 +47,7 @@ while IFS=: read -r name _ uid _ _ _ shell; do
     esac
     if [ "$uid" -ge 1000 ]; then
         add_user_to_group "$name"
+        enable_linger_for_user "$name"
     fi
 done </etc/passwd
 
@@ -45,6 +55,11 @@ done </etc/passwd
 if command -v udevadm >/dev/null 2>&1; then
     udevadm control --reload >/dev/null 2>&1 || true
     udevadm trigger --subsystem-match=leds >/dev/null 2>&1 || true
+fi
+
+# Enable the user service globally so the color restore script runs on login
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl --global enable rusty-kb.service >/dev/null 2>&1 || true
 fi
 
 exit 0
