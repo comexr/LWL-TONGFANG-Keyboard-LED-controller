@@ -27,7 +27,7 @@ keyboard-controller = { path = "/usr/bin/keyboard-controller" }
 [package.metadata.deb]
 maintainer = "mrscratchcat <maintainer@localhost>"
 section = "utils"
- depends = "libgtk-4-1, libglib2.0-0, libgdk-4-1"
+ depends = "libgtk-4-1, libglib2.0-0"
  assets = [
      ["target/release/keyboard-controller", "/usr/bin/keyboard-controller", "755"],
      ["rusty-kb.desktop", "/usr/share/applications/rusty-kb.desktop", "644"],
