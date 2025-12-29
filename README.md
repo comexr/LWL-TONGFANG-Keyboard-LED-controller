@@ -11,7 +11,7 @@ sudo bash -c 'if command -v apt &>/dev/null; then apt update && apt install -y c
 ```
 Then you need to clone the repo:
 ```bash
-git clone https://github.com/comexr/LWL-TONGFANG-Keyboard-LED-controller && cd LWL-TONGFANG-Keyboard-LED-controller
+git clone https://github.com/comexr/LWL-TONGFANG-Keyboard-LED-controller && cd lwl-x6-keyboard/
 ```
 
 Now you need to Build it for your system
