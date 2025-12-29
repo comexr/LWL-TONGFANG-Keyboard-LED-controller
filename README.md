@@ -17,6 +17,9 @@ git clone https://github.com/comexr/LWL-TONGFANG-Keyboard-LED-controller && cd l
 Now you need to Build it for your system
 To build it for debian execute:
 ```bash
+cargo install cargo-deb
+```
+```bash
 cargo deb
 ```
 To build for rpm execute:
