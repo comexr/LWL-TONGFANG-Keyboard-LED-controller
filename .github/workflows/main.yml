@@ -23,7 +23,7 @@ jobs:
         run: cargo deb
 
       - name: Build RPM Package
-        run: cargo rpm build
+        run: mv rpm .rpm && cargo rpm build || true && rpmbuild -ba target/release/rpmbuild/SPECS/keyboard-controller.spec -D "_topdir $(pwd)/target/release/rpmbuild" -D "_tmppath $(pwd)target/release/rpmbuild/tmp"
 
       - name: Confirm builds complete
         run: mkdir release && sudo install -m 644 -o runner -g runner $(find .. -type f -name *.deb && find /home/runner/rpmbuild/RPMS/noarch -type f -name *.rpm) release/
