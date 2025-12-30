@@ -20,7 +20,7 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y git devscripts dh-sequence-dkms debhelper rpm build-essential cargo libgtk-4-dev
-          cargo install cargo-deb
+          cargo install cargo-deb cargo-rpm
         
       - name: Build DEB Package
         run: cargo deb
