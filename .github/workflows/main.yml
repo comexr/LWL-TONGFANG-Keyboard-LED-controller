@@ -29,7 +29,6 @@ jobs:
         run: mv rpm .rpm && cargo rpm build || true && rpmbuild -ba target/release/rpmbuild/SPECS/keyboard-controller.spec -D "_topdir $(pwd)/target/release/rpmbuild" -D "_tmppath $(pwd)target/release/rpmbuild/tmp"
 
       - name: Confirm builds complete
-        # FIX: Updated paths to match where the files actually are
         run: |
           mkdir -p release
           # Find the DEB file in the target directory (safest method)
