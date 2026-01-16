@@ -24,6 +24,9 @@ cargo deb
 ```
 To build for rpm execute:
 ```bash
+cargo install cargo-rpm
+```
+```bash
 mv rpm .rpm
 ```
 ```bash
